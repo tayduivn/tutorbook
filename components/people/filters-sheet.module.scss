@@ -1,0 +1,46 @@
+@use 'sass:map';
+@use 'styles/typography';
+@use 'styles/query-form';
+@use 'styles/common';
+
+.wrapper {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-left: 1px solid var(--accents-2);
+  box-sizing: border-box;
+
+  @include query-form.core-styles(true);
+
+  .content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+
+    .form {
+      @include common.divider;
+      padding-top: 32px;
+    }
+
+    .header {
+      @include typography.typography('subtitle1');
+      padding: 24px 16px 16px;
+      margin: 0;
+
+      &:first-child {
+        border-top: none;
+      }
+    }
+
+    .list {
+      @include common.divider;
+
+      .empty {
+        margin: 0;
+        padding: 24px 16px;
+      }
+    }
+  }
+}

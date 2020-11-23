@@ -1,0 +1,70 @@
+@use 'styles/typography';
+
+// Update: September 2016, after a lot of grumbling, decided to simplify this.
+// Cons: The color accuracy has gone down and mostly works on very dark or very
+// light backgrounds.
+// Pros: The code is far simpler and doesn't require doubling-up the text.
+// @see {@link https://css-tricks.com/how-to-do-knockout-text/}
+@mixin gradient-text($gradient, $bg: 'light') {
+  @supports (mix-blend-mode: lighten) {
+    display: inline-block;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      background: unquote($gradient);
+      pointer-events: none;
+    }
+
+    @if ($bg == 'light') {
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply;
+
+      &::before {
+        mix-blend-mode: screen;
+      }
+    } @else {
+      color: #fff;
+      background: #000;
+      mix-blend-mode: lighten;
+
+      &::before {
+        mix-blend-mode: multiply;
+      }
+    }
+  }
+}
+
+:root .title {
+  @include gradient-text(
+    'linear-gradient(to right, var(--title-left) 9.38%, var(--title-right) 88.54%)',
+    'light'
+  );
+}
+
+:global(.dark) .title {
+  @include gradient-text(
+    'linear-gradient(to right, var(--title-left) 9.38%, var(--title-right) 88.54%)',
+    'dark'
+  );
+}
+
+.title {
+  @include typography.typography('headline2');
+  display: inline-block;
+  padding-bottom: 5px; // Otherwise, words with 'g' and 'y' get cut off.
+  border: 1px solid var(--background); // Otherwise, blue peaks out underneath.
+  margin: -1px;
+
+  @media (max-width: 800px) {
+    @include typography.typography('headline3');
+  }
+}

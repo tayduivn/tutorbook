@@ -1,0 +1,59 @@
+@use 'sass:map';
+
+.link {
+  display: inline-block;
+  border-radius: 6px;
+  padding: 12px 21px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 200ms;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  color: var(--on-background);
+  padding: 0;
+
+  path {
+    color: var(--on-background);
+    transition: all 200ms;
+  }
+
+  &:hover .arrow {
+    transform: translateX(4px);
+  }
+}
+
+.link[data-focus-visible-added] {
+  position: relative;
+}
+
+.link[data-focus-visible-added]:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  bottom: -6px;
+  left: -6px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.link:focus {
+  outline: 0;
+}
+
+.small {
+  padding: 6px 24px;
+}
+
+.wide {
+  width: 100%;
+}
+
+.arrow {
+  margin-left: 8px;
+  transition: transform 200ms;
+  height: 10px;
+}

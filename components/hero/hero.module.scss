@@ -1,0 +1,27 @@
+@use 'styles/common';
+
+.wrapper {
+  @include common.wrapper;
+}
+
+.hero {
+  padding: 72px 0;
+
+  @media (max-width: 800px) {
+    padding: 48px 0;
+  }
+}
+
+.title {
+  text-align: initial;
+  max-width: 600px;
+  padding-bottom: 48px;
+
+  @media (max-width: 800px) {
+    padding-bottom: 24px;
+  }
+}
+
+.card {
+  @include common.card;
+}

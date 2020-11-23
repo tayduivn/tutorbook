@@ -1,0 +1,188 @@
+@use 'sass:map';
+@use '@material/elevation';
+@use 'styles/typography';
+
+.anchor {
+  height: 40px;
+}
+
+.picker {
+  padding: 8px 0;
+  box-sizing: border-box;
+
+  .header {
+    max-width: 100%;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    color: var(--accents-5);
+    font-size: 12px;
+    font-family: var(--font-sans);
+    white-space: nowrap;
+    line-height: normal;
+    box-sizing: border-box;
+  }
+
+  .line {
+    border-top: 1px solid var(--accents-2);
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  .item {
+    @include typography.typography('body1');
+    position: relative;
+    font-size: 14px;
+    color: var(--accents-5);
+    line-height: 20px;
+    will-change: color;
+    transition: color 0.1s ease 0s, background-color 0.1s ease 0s;
+    max-width: 100%;
+    padding: 8px 20px;
+    text-align: left;
+    box-sizing: border-box;
+    display: block;
+
+    > a {
+      color: currentcolor;
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+      text-decoration: none;
+      margin: -8px -20px;
+      padding: 8px 20px;
+    }
+
+    &.header {
+      will-change: unset;
+      transition: none;
+      padding: 10px 15px;
+      align-items: center;
+      display: flex;
+
+      .label {
+        text-transform: uppercase;
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+
+    &:hover:not(.header):not(.switch) {
+      color: var(--on-background);
+    }
+
+    .avatar {
+      margin-right: 10px;
+      height: 24px;
+      width: 24px;
+    }
+
+    .label {
+      white-space: nowrap;
+      // The label should never overflow, but is sometimes forced to when a
+      // scrollbar is added to the `MenuSurface` on Firefox (which reduces the
+      // width of that `div` by the vertical scrollbar's width).
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .icon {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      right: 20px;
+      pointer-events: none;
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+
+      > i {
+        font-size: 20px !important;
+      }
+    }
+  }
+
+  button.item {
+    background: inherit;
+    border: none;
+    cursor: pointer;
+    padding-right: 50px;
+    width: 100%;
+  }
+}
+
+.selector {
+  background-color: var(--chip-background);
+  border-radius: 100px;
+  display: flex;
+  flex: 1 1 auto;
+  margin: 0 10px;
+  min-width: 0;
+  transition: background-color 0.1s ease;
+  z-index: 1;
+
+  .button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+
+    .wrapper {
+      box-sizing: border-box;
+      cursor: pointer;
+      display: inline-table;
+      position: relative;
+
+      .selected {
+        color: var(--on-background-6);
+        align-items: center;
+        border-bottom: 0 !important;
+        display: flex;
+        flex-shrink: 1;
+        font-size: 14px;
+        height: 36px !important;
+        max-width: initial;
+        padding: 0 12px;
+        position: relative;
+        vertical-align: middle;
+        width: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        .selectedIcon {
+          color: var(--on-background-6);
+          vertical-align: middle;
+        }
+
+        .selectedText {
+          letter-spacing: -0.01125rem;
+          font-family: var(--font-sans);
+          margin-left: 8px;
+          max-width: 300px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+
+      .arrowWrapper {
+        display: table-cell;
+        vertical-align: middle;
+
+        .arrow {
+          color: var(--on-background-6);
+          margin: 2px 16px 0 0;
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-top: 5px solid;
+        }
+      }
+    }
+  }
+}

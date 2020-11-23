@@ -1,0 +1,61 @@
+@use 'sass:map';
+@use 'styles/typography';
+@use '@material/chips/_index.scss' as chips;
+
+.errMenu {
+  max-width: 300px;
+  width: 100%;
+}
+
+.noResults {
+  @include typography.typography('body1');
+  text-align: center;
+  padding: 50px 0;
+}
+
+.textField {
+  width: 100% !important;
+  flex-wrap: wrap;
+  padding: 12px 16px 14px;
+}
+
+.textField textarea {
+  line-height: 30px !important;
+  height: 30px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  resize: none !important;
+  flex-grow: 1;
+  width: 10px;
+  overflow-wrap: normal;
+  overflow: hidden;
+}
+
+.textField :global(.mdc-notched-outline) {
+  top: 0;
+}
+
+.chip {
+  margin: 4px 8px 4px 0;
+  @include chips.height(22px);
+}
+
+.menuItem {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ghost {
+  line-height: 30px;
+  visibility: hidden;
+  position: absolute;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.009375em;
+}
+
+.lineBreak {
+  flex-basis: 100%;
+  height: 1px;
+}

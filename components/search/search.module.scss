@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use 'styles/typography';
+@use '@material/elevation';
+
+.wrapper {
+  max-width: var(--page-width-with-margin);
+  margin: 0 auto;
+  padding: 48px 24px;
+  box-sizing: border-box;
+}
+
+.results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.noResults {
+  margin: 80px 0;
+  text-align: center;
+}
+
+.noResultsHeader {
+  @include typography.typography('headline3');
+  margin: 16px 0;
+}
+
+.noResultsBody {
+  @include typography.typography('subtitle1');
+  color: var(--accents-5);
+  margin: 0 0 40px;
+}
+
+.carousel {
+  margin-top: -50%;
+}

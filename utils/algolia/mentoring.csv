@@ -1,0 +1,69 @@
+name,synonyms,categories
+Art,,
+Photography,,Art
+Filmmaking,Video Production,Art
+,,
+Music,,Art
+Music Production,,Music
+Music Composition,,Music
+Singing,,Music
+Guitar,,Music
+Piano,,Music
+Music Theory,,Music
+Drums,,Music
+Violin,,Music
+Ukulele,,Music
+Songwriting,,Music
+Bass,,Music
+Cello,,Music
+Clarinet,,Music
+Viola,,Music
+Flute,,Music
+Piccolo,,Music
+Trumpet,,Music
+Trombone,,Music
+Tuba,,Music
+Alto Saxophone,,Music
+Tenor Saxophone,,Music
+Bari Saxophone,,Music
+French Horn,,Music
+Xylophone,,Music
+,,
+Business,Business and Commerce,
+Entrepreneurship,,Business
+Marketing,Advertising,Business
+Sales,,Business
+Economics,,Business
+Product Management,,Business
+,,
+Computer Science,,
+Artificial Intelligence,"Machine Learning, ML, AI",Computer Science
+Machine Vision,Artificial Intelligence,Computer Science
+Networking,,Computer Science
+Back-End Development,Full-Stack Development,Computer Science
+Web Development,"Full-Stack Development, Front-End Development",Computer Science
+Data Science,Artificial Intelligence,Computer Science
+App Development,"Web Development, iOS Development, Android Development",Computer Science
+Frameworks,"Open Source Development, Back-End Development",Computer Science
+Systems,"Computer Architecture, Operating Systems, Back-End Development",Computer Science
+,,
+Design,UI/UX Design,
+Graphic Design,,Design
+,,
+Engineering,,
+Virtual Reality,"Augmented Reality, AR, VR","Engineering, Computer Science"
+,,
+Chemistry,,
+,,
+Biology,,
+Cellular Biology,,Biology
+Molecular Biology,,Biology
+Public Health,,Biology
+,,
+Writing,English,
+,,
+Fitness,"Sports, Athletics",
+,,
+Politics,Public Policy,
+,,
+Sociology,,

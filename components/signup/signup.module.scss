@@ -1,0 +1,80 @@
+@use 'sass:map';
+@use 'styles/common';
+@use 'styles/loader';
+@use 'styles/typography';
+
+.wrapper {
+  @include common.wrapper(var(--form-width-with-margin));
+  margin: 60px auto;
+  box-sizing: border-box;
+
+  .header,
+  .description {
+    display: grid;
+    overflow: hidden;
+
+    &.loading div {
+      @include loader.loading;
+      border-radius: 4px;
+    }
+
+    div {
+      grid-row: 1;
+      grid-column: 1;
+
+      &:last-child {
+        transform: translateY(100%);
+      }
+    }
+  }
+
+  .header {
+    margin: 0 0 20px;
+
+    .title {
+      background: var(--background);
+    }
+
+    &.loading div {
+      height: 125px;
+    }
+  }
+
+  .description {
+    @include typography.typography('subtitle1');
+    color: var(--accents-5);
+    margin: 0 0 30px;
+
+    &.loading div {
+      height: 85px;
+    }
+  }
+
+  .formCard {
+    @include common.card;
+    position: relative;
+    margin: 16px 0;
+
+    .inputs {
+      padding: 16px;
+
+      .field {
+        @include common.field;
+      }
+
+      .btn {
+        margin-top: 8px;
+        width: 100%;
+      }
+
+      .error {
+        @include common.error;
+      }
+    }
+
+    .divider {
+      @include common.divider;
+      margin: 8px 0;
+    }
+  }
+}

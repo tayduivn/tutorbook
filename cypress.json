@@ -1,0 +1,15 @@
+{
+  "projectId": "i6oq5i",
+  "baseUrl": "http://localhost:3000",
+  "pluginsFile": "cypress/plugins/index.ts",
+  "supportFile": "cypress/support/index.ts",
+  "integrationFolder": "cypress/tests",
+  "retries": {
+    "runMode": 2
+  },
+  "env": {
+    "codeCoverage": {
+      "url": "/api/coverage"
+    }
+  }
+}

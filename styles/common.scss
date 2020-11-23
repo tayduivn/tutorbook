@@ -1,0 +1,83 @@
+@use 'sass:map';
+@use 'styles/typography';
+@use '@material/elevation';
+
+@mixin wrapper($width: var(--page-width-with-margin)) {
+  max-width: $width;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+@mixin field {
+  margin: 8px 0;
+  width: 100%;
+  display: inline-flex;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  :global(.mdc-select__anchor) {
+    width: 100%;
+  }
+
+  &:not(:global(.mdc-menu-surface--anchor)) textarea {
+    min-height: 47px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+@mixin divider {
+  border-top: 1px solid var(--accents-2);
+}
+
+@mixin card {
+  @include elevation.elevation(0);
+  border: 1px solid var(--accents-2);
+  border-radius: 4px;
+  transition: elevation.transition-value(),
+    border elevation.$transition-duration elevation.$transition-timing-function;
+  will-change: elevation.$property, border;
+
+  &:hover {
+    @include elevation.elevation(8);
+    border: 1px solid var(--background);
+  }
+}
+
+@mixin snackbar {
+  margin: 24px;
+
+  :global(.mdc-snackbar__action) {
+    color: var(--primary);
+  }
+}
+
+@mixin error {
+  @include typography.typography('body2');
+  color: var(--error);
+  font-weight: 450;
+  font-size: 12px;
+  margin-top: 16px;
+  text-align: initial;
+}
+
+@mixin link {
+  color: var(--accents-5);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    color: var(--on-background);
+  }
+}

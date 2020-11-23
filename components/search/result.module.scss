@@ -1,0 +1,84 @@
+@use 'sass:map';
+@use 'styles/typography';
+@use 'styles/loader';
+
+$height: 125px;
+$margin: 20px;
+
+.listItem {
+  height: $height;
+  position: relative;
+  border: 1px solid var(--accents-2);
+  box-sizing: border-box;
+  border-top: none;
+  cursor: pointer;
+
+  &:first-child {
+    border-top: 1px solid var(--accents-2);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &.loading {
+    .img,
+    .name,
+    .bio {
+      @include loader.loading();
+      border-radius: 4px;
+    }
+
+    .bio {
+      top: $margin * 2 + 24px;
+      height: $height - (3 * $margin + 24px);
+    }
+  }
+
+  &.avatar .name,
+  &.avatar .bio {
+    left: $height;
+    width: calc(100% - #{$height + $margin});
+  }
+
+  .img {
+    display: inline-block;
+    position: absolute;
+    left: $margin;
+    top: $margin;
+    width: $height - 2 * $margin;
+    height: $height - 2 * $margin;
+  }
+
+  .name {
+    @include typography.typography('body1');
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--on-background);
+    display: inline-block;
+    position: absolute;
+    left: $margin;
+    top: $margin;
+    width: calc(100% - #{2 * $margin});
+    height: 24px;
+  }
+
+  .bio {
+    @include typography.typography('body2');
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--accents-5);
+    display: inline-block;
+    position: absolute;
+    left: $margin;
+    top: $margin + 24px;
+    width: calc(100% - #{2 * $margin});
+    height: $height - (2 * $margin + 24px);
+  }
+}
